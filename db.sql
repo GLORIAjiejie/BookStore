@@ -21,8 +21,7 @@ create table books(
 	des varchar(255),
 	categoryId varchar(100),
 	CONSTRAINT category_id_fk FOREIGN KEY (categoryId) REFERENCES categorys(id)  
-
-)
+);
 
 
 
@@ -38,7 +37,7 @@ create table customers(
 	email varchar(20) not null unique,
 	code varchar(200) unique,
 	actived bit(1) 
-)
+);
 
 --订单表
 create table orders(
@@ -48,8 +47,7 @@ create table orders(
 	status int,
 	customerId VARCHAR(100),
 	CONSTRAINT customerId_fk FOREIGN KEY (customerId) REFERENCES customers(id)  
-)
-)
+);
 
 --订单详情表
 create table orderitems(
@@ -60,13 +58,13 @@ create table orderitems(
 	bookid varchar(100),
 	CONSTRAINT ordernum_fk FOREIGN KEY (ordernum) REFERENCES orders(ordernum),
 	CONSTRAINT bookid_fk FOREIGN KEY (bookid) REFERENCES books(id)    
-)
+);
 
 --订单编号表
 create table ordernum(
 	prefix date,
 	num int	
-)
+);
 
 
 --权限控制
@@ -86,7 +84,7 @@ create table functions(
 	id varchar(100) primary key,
 	name varchar(100) not null unique,
 	uri varchar(255)
-)
+);
 
 CREATE TABLE role_function(
 	r_id VARCHAR(100),
